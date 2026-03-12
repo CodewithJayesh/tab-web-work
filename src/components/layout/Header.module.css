@@ -1,0 +1,121 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  transition: background-color 220ms ease, border-color 220ms ease;
+}
+
+.compact {
+  border-bottom: 1px solid var(--line);
+  background: rgba(5, 16, 24, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+.bar {
+  min-height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.link {
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: all 180ms ease;
+}
+
+.link:hover {
+  background: var(--surface-strong);
+  color: var(--text-main);
+}
+
+.active {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: linear-gradient(
+    120deg,
+    rgba(255, 140, 66, 0.22),
+    rgba(23, 190, 187, 0.22)
+  );
+  color: var(--text-main);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.55rem 0.98rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cta:hover {
+  border-color: rgba(255, 140, 66, 0.72);
+}
+
+.menuToggle {
+  display: none;
+  border-radius: 0.8rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  font: inherit;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+}
+
+.mobilePanel {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .desktopNav,
+  .cta {
+    display: none;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobilePanel {
+    display: block;
+    border-top: 1px solid var(--line);
+    background: rgba(5, 16, 24, 0.92);
+  }
+
+  .mobileNav {
+    display: grid;
+    gap: 0.55rem;
+    padding: 0.8rem 0 1rem;
+  }
+
+  .mobileLink {
+    border-radius: 0.8rem;
+    border: 1px solid var(--line);
+    padding: 0.68rem 0.78rem;
+    font-size: 0.9rem;
+    color: var(--text-soft);
+  }
+
+  .mobileActive {
+    border-color: rgba(23, 190, 187, 0.8);
+    color: var(--text-main);
+    background: rgba(23, 190, 187, 0.18);
+  }
+}
