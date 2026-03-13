@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/common/FeatureCard";
+import MetricCard from "../components/common/MetricCard";
 import SectionIntro from "../components/common/SectionIntro";
-import { homeFeatures, testimonials } from "../config/content";
+import {
+  homeFeatures,
+  homeMetrics,
+  servicePackages,
+  testimonials,
+} from "../config/content";
 import { useApiHealth } from "../hooks/useApiHealth";
 import { usePageTitle } from "../hooks/usePageTitle";
 
@@ -47,6 +53,14 @@ export default function HomePage() {
       </section>
 
       <section className="section">
+        <div className="metrics-grid stagger">
+          {homeMetrics.map((metric) => (
+            <MetricCard key={metric.label} label={metric.label} value={metric.value} />
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
         <SectionIntro
           copy="Each block is designed for reuse across multiple pages without duplicate UI code."
           eyebrow="Reusable Components"
@@ -55,6 +69,19 @@ export default function HomePage() {
         <div className="card-grid stagger">
           {homeFeatures.map((feature) => (
             <FeatureCard key={feature.title} body={feature.body} title={feature.title} />
+          ))}
+        </div>
+      </section>
+
+      <section className="section">
+        <SectionIntro
+          copy="These feature bundles are designed for different kinds of frontend work."
+          eyebrow="Service Packages"
+          title="Choose a development direction."
+        />
+        <div className="card-grid stagger">
+          {servicePackages.map((service) => (
+            <FeatureCard key={service.title} body={service.body} title={service.title} />
           ))}
         </div>
       </section>

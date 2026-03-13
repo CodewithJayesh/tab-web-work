@@ -1,6 +1,7 @@
+import FaqAccordion from "../components/common/FaqAccordion";
 import FeatureCard from "../components/common/FeatureCard";
 import SectionIntro from "../components/common/SectionIntro";
-import { aboutValues } from "../config/content";
+import { aboutValues, faqs } from "../config/content";
 import { usePageTitle } from "../hooks/usePageTitle";
 
 export default function AboutPage() {
@@ -43,6 +44,15 @@ export default function AboutPage() {
             </p>
           </article>
         </div>
+      </section>
+
+      <section className="section">
+        <SectionIntro
+          copy="A lightweight accordion keeps common product and delivery questions easy to scan."
+          eyebrow="FAQ"
+          title="Answers before kickoff."
+        />
+        <FaqAccordion items={faqs} />
       </section>
     </>
   );

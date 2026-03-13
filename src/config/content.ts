@@ -7,6 +7,17 @@ export interface TestimonialData {
   quote: string;
   person: string;
   role: string;
+  segment: "startup" | "agency" | "enterprise";
+}
+
+export interface MetricData {
+  label: string;
+  value: string;
+}
+
+export interface FaqData {
+  question: string;
+  answer: string;
 }
 
 export const homeFeatures: InfoCardData[] = [
@@ -36,6 +47,36 @@ export const homeFeatures: InfoCardData[] = [
   },
 ];
 
+export const homeMetrics: MetricData[] = [
+  {
+    label: "Reusable sections shipped",
+    value: "12+",
+  },
+  {
+    label: "Responsive breakpoints tuned",
+    value: "4",
+  },
+  {
+    label: "Custom hooks powering UI",
+    value: "7",
+  },
+];
+
+export const servicePackages: InfoCardData[] = [
+  {
+    title: "Landing Page Sprint",
+    body: "Focused marketing page build with animated hero, sections, CTA flow, and mobile-first polish.",
+  },
+  {
+    title: "Business Website System",
+    body: "Multi-page website with reusable layout, route structure, form flows, and content sections.",
+  },
+  {
+    title: "Product UI Foundation",
+    body: "Frontend starter with route shells, dashboard patterns, API wiring, and maintainable component architecture.",
+  },
+];
+
 export const aboutValues: InfoCardData[] = [
   {
     title: "Planning First",
@@ -61,18 +102,28 @@ export const testimonials: TestimonialData[] = [
       "The new React structure helped us move from a static demo to a production-ready interface in days.",
     person: "Aditi Sharma",
     role: "Product Lead, Nova Systems",
+    segment: "startup",
   },
   {
     quote:
       "Reusable hooks and route-based pages made our frontend cleaner and far easier to maintain.",
     person: "Ravi Mehta",
     role: "Engineering Manager, Sunburst Labs",
+    segment: "enterprise",
   },
   {
     quote:
       "The attractive menu and polished visual system gave us a strong first impression with clients.",
     person: "Nikhil Rao",
     role: "Founder, BrightOrbit",
+    segment: "agency",
+  },
+  {
+    quote:
+      "Our contact flow and menu interactions finally felt intentional instead of stitched together.",
+    person: "Sneha Verma",
+    role: "Operations Lead, PixelDock",
+    segment: "agency",
   },
 ];
 
@@ -88,5 +139,23 @@ export const contactSupport: InfoCardData[] = [
   {
     title: "Delivery",
     body: "You receive reusable code with clear routes, hooks, and component patterns.",
+  },
+];
+
+export const faqs: FaqData[] = [
+  {
+    question: "Can this frontend connect to an existing backend?",
+    answer:
+      "Yes. The project already isolates API health logic in a hook, so we can point forms and data blocks to your existing endpoints.",
+  },
+  {
+    question: "Is this structure ready for more pages later?",
+    answer:
+      "Yes. The layout, routes, hooks, and config-driven content were designed so new pages can be added without reworking the whole app.",
+  },
+  {
+    question: "Can we change the look and feel for a brand?",
+    answer:
+      "Yes. Colors, typography, motion, and card treatments are centralized so we can quickly re-theme the site while keeping the same architecture.",
   },
 ];

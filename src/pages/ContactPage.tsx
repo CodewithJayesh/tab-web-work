@@ -1,3 +1,4 @@
+import EstimatePanel from "../components/common/EstimatePanel";
 import FeatureCard from "../components/common/FeatureCard";
 import SectionIntro from "../components/common/SectionIntro";
 import { contactSupport } from "../config/content";
@@ -70,6 +71,10 @@ export default function ContactPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="section">
+        <EstimatePanel />
       </section>
     </>
   );
