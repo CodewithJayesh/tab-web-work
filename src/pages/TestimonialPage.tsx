@@ -2,9 +2,12 @@ import SectionIntro from "../components/common/SectionIntro";
 import TestimonialCard from "../components/common/TestimonialCard";
 import { testimonials } from "../config/content";
 import { usePageTitle } from "../hooks/usePageTitle";
+import { useTestimonialFilter } from "../hooks/useTestimonialFilter";
 
 export default function TestimonialPage() {
   usePageTitle("Testimonial");
+  const { filteredTestimonials, segment, setSegment } =
+    useTestimonialFilter(testimonials);
 
   return (
     <>
@@ -14,8 +17,22 @@ export default function TestimonialPage() {
           eyebrow="Testimonial"
           title="What teams say after adopting this UI setup."
         />
+        <div className="filter-row">
+          {["all", "startup", "agency", "enterprise"].map((item) => (
+            <button
+              className={`filter-chip ${segment === item ? "is-active" : ""}`}
+              key={item}
+              onClick={() =>
+                setSegment(item as "all" | "startup" | "agency" | "enterprise")
+              }
+              type="button"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
         <div className="card-grid stagger">
-          {testimonials.map((entry) => (
+          {filteredTestimonials.map((entry) => (
             <TestimonialCard
               key={entry.person}
               person={entry.person}
