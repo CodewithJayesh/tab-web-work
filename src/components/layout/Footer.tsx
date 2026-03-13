@@ -16,10 +16,10 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container footer-grid">
         <section>
-          <h3 className="footer-title">Orbit UI Studio</h3>
+          <h3 className="footer-title">Northframe Atelier</h3>
           <p className="footer-copy">
-            Vite + React website with reusable components, custom hooks, and
-            event-based interactions.
+            A route-based React template with a more editorial visual system,
+            reusable sections, and backend-connected interactions.
           </p>
         </section>
 

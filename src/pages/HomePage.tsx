@@ -20,34 +20,47 @@ export default function HomePage() {
       <section className="section">
         <div className="hero-grid">
           <div>
-            <p className="eyebrow">React + Vite Frontend</p>
+            <p className="eyebrow">Studio Template 02</p>
             <h1 className="section-title">
-              Attractive multi-page website with reusable architecture.
+              Editorial frontend template with a sharper visual identity.
             </h1>
             <p className="section-copy">
-              This project includes a logo section, interactive menu bar
-              (Home, AboutUs, Testimonial, ContactUs), custom hooks, routes,
-              and event-based configuration ready for extension.
+              Built for teams that want something more intentional than a
+              default SaaS landing page. The layout keeps the reusable React
+              architecture, but the interface now feels like a designed studio
+              site.
             </p>
             <div className="button-row">
               <Link className="button button-solid" to="/contactus">
-                Contact Team
+                Start a Build
               </Link>
               <Link className="button button-outline" to="/aboutus">
-                See Process
+                Explore Process
               </Link>
             </div>
           </div>
 
-          <aside className="status-card">
-            <p className="footer-heading">Backend Health</p>
-            <span className={`health-pill ${apiHealth.status}`}>
-              {apiHealth.status.toUpperCase()}
-            </span>
-            <p className="footer-copy">{apiHealth.message}</p>
-            <p className="footer-copy">
-              Endpoint: <code>/api/health</code>
-            </p>
+          <aside className="template-stage">
+            <article className="stage-card stage-card-large">
+              <p className="stage-label">Current Mode</p>
+              <h3>Brand-led interface system</h3>
+              <p>
+                Warm surfaces, framed cards, expressive type, and softer motion.
+              </p>
+            </article>
+            <article className="stage-card stage-card-accent">
+              <p className="stage-label">Backend Health</p>
+              <span className={`health-pill ${apiHealth.status}`}>
+                {apiHealth.status.toUpperCase()}
+              </span>
+              <p>{apiHealth.message}</p>
+            </article>
+            <article className="stage-card">
+              <p className="stage-label">Endpoint</p>
+              <p>
+                <code>/api/health</code>
+              </p>
+            </article>
           </aside>
         </div>
       </section>
