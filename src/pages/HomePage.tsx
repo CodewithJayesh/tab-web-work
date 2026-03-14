@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import FeatureCard from "../components/common/FeatureCard";
 import MetricCard from "../components/common/MetricCard";
+import RouteArtwork from "../components/common/RouteArtwork";
 import SectionIntro from "../components/common/SectionIntro";
 import {
   homeFeatures,
@@ -19,10 +20,14 @@ export default function HomePage() {
     <>
       <section className="section">
         <div className="hero-grid">
-          <div>
+          <div className="hero-copy-block">
             <p className="eyebrow">Studio Template 02</p>
+            <div className="hero-kicker-row">
+              <span className="hero-kicker">Different template switcher</span>
+              <span className="hero-kicker">Route-based illustration system</span>
+            </div>
             <h1 className="section-title">
-              Editorial frontend template with a sharper visual identity.
+              A bolder home page with art direction that actually leads the site.
             </h1>
             <p className="section-copy">
               Built for teams that want something more intentional than a
@@ -38,29 +43,30 @@ export default function HomePage() {
                 Explore Process
               </Link>
             </div>
+            <div className="hero-ribbon">
+              <span>Art-driven home hero</span>
+              <span>Switchable templates</span>
+              <span>React + Express foundation</span>
+            </div>
           </div>
 
-          <aside className="template-stage">
-            <article className="stage-card stage-card-large">
-              <p className="stage-label">Current Mode</p>
-              <h3>Brand-led interface system</h3>
-              <p>
-                Warm surfaces, framed cards, expressive type, and softer motion.
-              </p>
-            </article>
-            <article className="stage-card stage-card-accent">
-              <p className="stage-label">Backend Health</p>
-              <span className={`health-pill ${apiHealth.status}`}>
-                {apiHealth.status.toUpperCase()}
-              </span>
-              <p>{apiHealth.message}</p>
-            </article>
-            <article className="stage-card">
-              <p className="stage-label">Endpoint</p>
-              <p>
-                <code>/api/health</code>
-              </p>
-            </article>
+          <aside className="hero-art-panel">
+            <RouteArtwork variant="home" />
+            <div className="template-stage">
+              <article className="stage-card stage-card-accent">
+                <p className="stage-label">Backend Health</p>
+                <span className={`health-pill ${apiHealth.status}`}>
+                  {apiHealth.status.toUpperCase()}
+                </span>
+                <p>{apiHealth.message}</p>
+              </article>
+              <article className="stage-card">
+                <p className="stage-label">Endpoint</p>
+                <p>
+                  <code>/api/health</code>
+                </p>
+              </article>
+            </div>
           </aside>
         </div>
       </section>

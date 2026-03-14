@@ -4,11 +4,13 @@ import Logo from "../common/Logo";
 import { navigationItems } from "../../config/navigation";
 import { useStickyHeader } from "../../hooks/useStickyHeader";
 import { emitMenuSelected } from "../../hooks/useUiEvents";
+import { useTheme } from "../../theme/useTheme";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const compact = useStickyHeader();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <header className={`${styles.header} ${compact ? styles.compact : ""}`}>
@@ -32,9 +34,14 @@ export default function Header() {
           ))}
         </nav>
 
-        <Link className={styles.cta} to="/contactus">
-          Start Project
-        </Link>
+        <div className={styles.actions}>
+          <button className={styles.themeToggle} onClick={toggleTheme} type="button">
+            {theme === "editorial" ? "Switch to Signal" : "Switch to Editorial"}
+          </button>
+          <Link className={styles.cta} to="/contactus">
+            Start Project
+          </Link>
+        </div>
 
         <button
           aria-expanded={mobileOpen}
@@ -50,6 +57,13 @@ export default function Header() {
         <div className={styles.mobilePanel}>
           <div className="container">
             <nav aria-label="Mobile menu" className={styles.mobileNav}>
+              <button
+                className={styles.mobileThemeToggle}
+                onClick={toggleTheme}
+                type="button"
+              >
+                {theme === "editorial" ? "Use Signal Theme" : "Use Editorial Theme"}
+              </button>
               {navigationItems.map((item) => (
                 <NavLink
                   key={`mobile-${item.path}`}

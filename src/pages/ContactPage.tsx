@@ -1,5 +1,6 @@
 import EstimatePanel from "../components/common/EstimatePanel";
 import FeatureCard from "../components/common/FeatureCard";
+import RouteArtwork from "../components/common/RouteArtwork";
 import SectionIntro from "../components/common/SectionIntro";
 import { contactSupport } from "../config/content";
 import { useContactForm } from "../hooks/useContactForm";
@@ -12,15 +13,14 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="section">
-        <SectionIntro
-          copy="Use this reusable event-enabled form to start your project conversation."
-          eyebrow="ContactUs"
-          title="Send your requirements."
-        />
-
-        <div className="two-col">
-          <div>
+      <section className="section contact-template">
+        <div className="contact-board">
+          <div className="contact-board-main">
+            <SectionIntro
+              copy="Use this reusable event-enabled form to start your project conversation."
+              eyebrow="ContactUs"
+              title="Send your requirements."
+            />
             <form className="contact-form" onSubmit={onSubmit}>
               <input
                 className="input-control"
@@ -65,15 +65,24 @@ export default function ContactPage() {
             <p className="form-status">{feedback}</p>
           </div>
 
-          <div className="stagger">
+          <aside className="contact-side-panel stagger">
+            <div className="contact-note-card">
+              <p className="stage-label">Response Window</p>
+              <h3>Usually within one business day.</h3>
+              <p>
+                Share goals, rough scope, and any timing constraints. We can
+                reply with a recommended site structure and next steps.
+              </p>
+              <RouteArtwork variant="contact" />
+            </div>
             {contactSupport.map((entry) => (
               <FeatureCard key={entry.title} body={entry.body} title={entry.title} />
             ))}
-          </div>
+          </aside>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section planner-shell">
         <EstimatePanel />
       </section>
     </>

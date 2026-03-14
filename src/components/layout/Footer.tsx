@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { navigationItems } from "../../config/navigation";
 import { useUiEvents } from "../../hooks/useUiEvents";
+import { useTheme } from "../../theme/useTheme";
 
 function formatTime(value: string): string {
   return new Date(value).toLocaleTimeString([], {
@@ -11,6 +12,7 @@ function formatTime(value: string): string {
 
 export default function Footer() {
   const { lastMenuEvent, lastContactEvent } = useUiEvents();
+  const { theme } = useTheme();
 
   return (
     <footer className="site-footer">
@@ -21,6 +23,7 @@ export default function Footer() {
             A route-based React template with a more editorial visual system,
             reusable sections, and backend-connected interactions.
           </p>
+          <p className="event-pill">Current template: {theme}</p>
         </section>
 
         <section>
